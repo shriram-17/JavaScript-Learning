@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Game ID <%= game.id %>  </h1>
-    <h2><%= game.name %> : <%= game.rating %> </h2>
-    <a href="/rating">HomePage</a>
-    <a href="/rating/<%=game.id%>/edit">Edit</a>
+    <h1>Edit</h1>
+    <form action="/rating/<%= game.rating%>/edit">
+    <label for="">Enter the Rating Again</label>
+    <input type="text" name="rating" placeholder="<%= game.rating %>">
+    <button>Save</button>
+    </form>
 </body>
 </html>

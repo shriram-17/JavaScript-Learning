@@ -10,7 +10,9 @@
     <h1>Game</h1>
     <ul>
        <% for( let g of games ) { %>
-        <li><b><%= g.name %></b>:  <%= g.rating %>  </li>
+        <li><b><%= g.name %></b>:  <%= g.rating %> 
+        <a href="/rating/<%=g.id%>">Details</a> 
+        </li>
        <% } %>
     </ul>
     <a href="/rating/new">Add an New Game </a>

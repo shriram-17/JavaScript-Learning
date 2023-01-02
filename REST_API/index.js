@@ -10,22 +10,22 @@ app.set('views',path.join(__dirname,'views'))
 app.set('view engine','ejs')
 
 const games=[
-    {   id:uuid(),
+    {   id:1,
         name:"Halo 3",
         rating :9
     },
     {   
-        id:uuid(),
+        id:2,
         name:"Bioshock Infinite",
         rating :8.5
     },
     {   
-        id:uuid(),
+        id:3,
         name:"God of War 3",
         rating :9
     },
     {   
-        id:uuid(),
+        id:4,
         name:"Legend of Zelda Skyward Sword",
         rating :8.9
     }
@@ -45,15 +45,28 @@ app.get('/rating/new',(req,res)=>{
 
 app.post('/rating',(req,res)=>{
     const {name,rating}=req.body;
-    games.push({name,rating,id:uuid()})
+    games.push({name,rating,id:games.length+1})
     res.redirect('/rating');
 })
 
 app.get('/rating/:id',(req,res)=>{
     const {id}=req.params;
-    const game=games.find(g => g.id ===id)
+    const game=games.find(g => g.id ===parseInt(id))
     res.render('game/show',{game})
 })
+
+app.get('/rating/:id/edit',(req,res)=>{
+    const {id}=req.params;
+    const game=games.find(g => g.id ===parseInt(id))
+    res.render('game/edit',{game})
+})
+
+app.patch(('/rating/:id'),(req,res)=>{
+    const {id}=req.params;
+    const game=games.find(g => g.id ===parseInt(id))
+
+})
+
 app.listen(port,()=>{
     console.log(`Server at ${port}`)
 })
