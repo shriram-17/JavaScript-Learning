@@ -11,5 +11,8 @@
     <h2><%= game.name %> : <%= game.rating %> </h2>
     <a href="/rating">HomePage</a>
     <a href="/rating/<%=game.id%>/edit">Edit</a>
+    <form action="/rating/<%= game.id %>?_method=DELETE" method="post">
+        <button>Delete</button>
+    </form>
 </body>
 </html>

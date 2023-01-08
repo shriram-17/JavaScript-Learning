@@ -8,8 +8,8 @@
 </head>
 <body>
     <h1>Edit</h1>
-    <form action="/rating/<%= game.rating%>/edit">
-    <label for="">Enter the Rating Again</label>
+    <form method="post" action="/rating/<%= game.id%>?_method=PATCH">
+    <label for="rating">Enter the Rating Again</label>
     <input type="text" name="rating" placeholder="<%= game.rating %>">
     <button>Save</button>
     </form>
